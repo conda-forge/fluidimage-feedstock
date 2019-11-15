@@ -1,32 +1,32 @@
-{% set name = "fluidimage" %}
 {% set version = "0.1.2" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: fluidimage
+  version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/f/fluidimage/fluidimage-{{ version }}.tar.gz
   sha256: f2910a799bcd625a3a10ae6afb3e05668629e21764ea6ee171774a0817afee00
 
 build:
   number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+  skip: true  # [py<36]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
-  script: "{{ PYTHON }} -m pip install . -vv "
-  skip: true  # [py<36]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
   host:
-    - pip
     - python
+    - pip
     - setuptools_scm
     - transonic
     - pythran
-    - numpy 1.16.5
+    - numpy 1.17.*
   run:
+    - python
     - dask
     - fluiddyn >=0.2.0
     - h5netcdf
@@ -36,7 +36,6 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - pims
     - pyfftw >=0.10.4
-    - python
     - scipy >=0.14.1
     - trio
     - ipython
