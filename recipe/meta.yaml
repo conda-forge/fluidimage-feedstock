@@ -22,11 +22,12 @@ requirements:
     - python
     - pip
     - setuptools_scm
-    - transonic
+    - transonic >=0.4.2
     - pythran
     - numpy 1.17.*
   run:
     - python
+    - transonic >=0.4.2
     - dask
     - fluiddyn >=0.2.0
     - h5netcdf
