@@ -9,7 +9,7 @@ source:
   sha256: f2910a799bcd625a3a10ae6afb3e05668629e21764ea6ee171774a0817afee00
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   skip: true  # [py<36]
   entry_points:
@@ -33,7 +33,7 @@ requirements:
     - h5netcdf
     - h5py
     - imageio
-    - matplotlib >=1.4.2
+    - matplotlib-base >=1.4.2
     - {{ pin_compatible('numpy') }}
     - pims
     - pyfftw >=0.10.4
