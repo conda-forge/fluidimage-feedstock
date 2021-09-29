@@ -1,4 +1,4 @@
-{% set version = "0.1.2" %}
+{% set version = "0.1.3" %}
 
 package:
   name: fluidimage
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/fluidimage/fluidimage-{{ version }}.tar.gz
-  sha256: f2910a799bcd625a3a10ae6afb3e05668629e21764ea6ee171774a0817afee00
+  sha256: 4a489627e6d35b4d751714f6cda5679cd9893dd4cf6ae01abc022f6e13f13f3e
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . -vv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<36]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
@@ -67,8 +67,7 @@ about:
   home: https://bitbucket.org/fluiddyn/fluidimage
   license: CeCILL-B
   license_file: LICENSE.txt
-  summary: libre Python framework for scientific processing of large series
-    of images.
+  summary: libre Python framework for scientific processing of large series of images.
   description: |
     This package is young but already good enough to be used “in production”
     to display and pre-process images, compute displacement or velocity fields
