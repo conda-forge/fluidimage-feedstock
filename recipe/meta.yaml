@@ -24,16 +24,16 @@ requirements:
     - setuptools_scm
     - transonic >=0.4.2
     - pythran
-    - numpy 1.17.*
+    - numpy
   run:
     - python
     - transonic >=0.4.2
     - dask
-    - fluiddyn >=0.2.0
+    - fluiddyn >=0.3.4
     - h5netcdf
     - h5py
     - imageio
-    - matplotlib-base >=1.4.2
+    - matplotlib-base >=3.4
     - {{ pin_compatible('numpy') }}
     - pims
     - pyfftw >=0.10.4
@@ -42,6 +42,8 @@ requirements:
     - ipython
     - opencv
     - transonic
+    - scikit-image >=0.12.3
+    - PyQt5
 
 test:
   imports:
@@ -65,7 +67,7 @@ test:
 
 about:
   home: https://bitbucket.org/fluiddyn/fluidimage
-  license: CeCILL-B
+  license: LicenseRef-CeCILL-B
   license_file: LICENSE.txt
   summary: libre Python framework for scientific processing of large series of images.
   description: |
