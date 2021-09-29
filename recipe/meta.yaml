@@ -23,11 +23,11 @@ requirements:
     - pip
     - setuptools_scm
     - transonic >=0.4.11
-    - pythran
+    - pythran >=0.10
     - numpy
   run:
     - python
-    - transonic >=0.4.2
+    - transonic >=0.4.11
     - dask
     - fluiddyn >=0.3.4
     - h5netcdf
