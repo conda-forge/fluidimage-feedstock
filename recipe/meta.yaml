@@ -22,9 +22,8 @@ requirements:
     - python
     - pip
     - setuptools_scm
-    - transonic >=0.4.11
-    - pythran >=0.10
-    - numpy
+    - transonic
+    - pythran
   run:
     - python
     - transonic >=0.4.11
