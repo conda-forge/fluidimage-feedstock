@@ -15,7 +15,7 @@ build:
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
   script_env:
-   - FLUIDDYN_NO_QTPY_INIT_BEFORE_OPENCV_IMPORT=1
+    - QT_QPA_PLATFORM=offscreen
 
 requirements:
   build:
@@ -68,7 +68,7 @@ test:
     - fluidimviewer --help
 
 about:
-  home: https://bitbucket.org/fluiddyn/fluidimage
+  home: https://foss.heptapod.net/fluiddyn/fluidimage
   license: LicenseRef-CeCILL-B
   license_file: LICENSE.txt
   summary: libre Python framework for scientific processing of large series of images.
