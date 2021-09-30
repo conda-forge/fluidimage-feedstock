@@ -1,4 +1,4 @@
-{% set version = "0.1.3" %}
+{% set version = "0.1.3.post0" %}
 
 package:
   name: fluidimage
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/fluidimage/fluidimage-{{ version }}.tar.gz
-  sha256: 4a489627e6d35b4d751714f6cda5679cd9893dd4cf6ae01abc022f6e13f13f3e
+  sha256: 5ccf76d1856e20ff3be7c36ebdc8d9126c45194d7613ac601a83a636b68e73e8
 
 build:
   number: 0
@@ -14,6 +14,8 @@ build:
   skip: true  # [py<37]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
+  script_env:
+   - FLUIDDYN_NO_QTPY_INIT_BEFORE_OPENCV_IMPORT=1
 
 requirements:
   build:
@@ -63,6 +65,7 @@ test:
     - fluidimage.works.piv
   commands:
     - fluidimviewer-pg --help
+    - fluidimviewer --help
 
 about:
   home: https://bitbucket.org/fluiddyn/fluidimage
