@@ -10,7 +10,6 @@ source:
 
 build:
   number: 1
-  script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<37]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
