@@ -1,4 +1,4 @@
-{% set version = "0.1.3.post0" %}
+{% set version = "0.1.4" %}
 
 package:
   name: fluidimage
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/fluidimage/fluidimage-{{ version }}.tar.gz
-  sha256: 5ccf76d1856e20ff3be7c36ebdc8d9126c45194d7613ac601a83a636b68e73e8
+  sha256: 33c2ce6b53c0468daaae56bc7256334b85354d28227da0d61227c3390881e517
 
 build:
-  number: 1
-  skip: true  # [py<37]
+  number: 0
+  skip: true  # [py<38]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
   script_env:
@@ -27,7 +27,7 @@ requirements:
     - pythran
   run:
     - python
-    - transonic >=0.4.11
+    - transonic
     - dask
     - fluiddyn >=0.3.4
     - h5netcdf
