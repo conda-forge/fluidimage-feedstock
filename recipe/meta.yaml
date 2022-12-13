@@ -9,7 +9,7 @@ source:
   sha256: 33c2ce6b53c0468daaae56bc7256334b85354d28227da0d61227c3390881e517
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<38]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
