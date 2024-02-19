@@ -26,7 +26,7 @@ requirements:
     - python
     - meson-python
     - numpy
-    - transonic =0.6.1
+    - transonic >=0.6.2
     - pythran >=0.9.7
     # pythran code needs clang-cl on windows
     - clang  # [win]
@@ -34,7 +34,7 @@ requirements:
     - python
     - ipython
     - {{ pin_compatible('numpy') }}
-    - transonic =0.6.1
+    - transonic >=0.6.2
     - dask
     - fluiddyn >=0.3.4
     - h5netcdf
@@ -64,7 +64,9 @@ test:
     - fluidimage.topologies
     - fluidimage.util
     - fluidimage.works
-    - fluidimage.works.piv
+    # On Windows
+    # ImportError: DLL load failed while importing subpix: A dynamic link library (DLL) initialization routine failed.
+    # - fluidimage.works.piv
   commands:
     - fluidimviewer-pg --help
     - fluidimviewer --help
