@@ -13,6 +13,8 @@ build:
   skip: true  # [py<39]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
+    - fluidimviewer = fluidimage.gui.imviewer:main
+    - fluidimlauncher = fluidimage.gui.launcher.main:main
   script_env:
     - QT_QPA_PLATFORM=offscreen
 
@@ -20,21 +22,24 @@ requirements:
   build:
     - {{ compiler('cxx') }}
   host:
-    - python
     - pip
-    - setuptools_scm
-    - transonic
-    - pythran
+    - python
+    - meson-python
+    - numpy
+    - transonic >=0.6.1
+    - pythran >=0.9.7
+    # pythran code needs clang-cl on windows
+    - clang  # [win]
   run:
     - python
+    - {{ pin_compatible('numpy') }}
     - transonic
     - dask
     - fluiddyn >=0.3.4
     - h5netcdf
     - h5py
     - imageio
-    - matplotlib-base >=3.4
-    - {{ pin_compatible('numpy') }}
+    - matplotlib
     - pims
     - pyfftw >=0.10.4
     - scipy >=0.14.1
@@ -43,7 +48,6 @@ requirements:
     - opencv
     - transonic
     - scikit-image >=0.12.3
-    - pyqt ==5.*
 
 test:
   imports:
@@ -65,6 +69,7 @@ test:
   commands:
     - fluidimviewer-pg --help
     - fluidimviewer --help
+    - fluidimlauncher -h
 
 about:
   home: https://foss.heptapod.net/fluiddyn/fluidimage
