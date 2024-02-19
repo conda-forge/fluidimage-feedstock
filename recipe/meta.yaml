@@ -26,14 +26,15 @@ requirements:
     - python
     - meson-python
     - numpy
-    - transonic >=0.6.1
+    - transonic =0.6.1
     - pythran >=0.9.7
     # pythran code needs clang-cl on windows
     - clang  # [win]
   run:
     - python
+    - ipython
     - {{ pin_compatible('numpy') }}
-    - transonic
+    - transonic =0.6.1
     - dask
     - fluiddyn >=0.3.4
     - h5netcdf
@@ -44,9 +45,7 @@ requirements:
     - pyfftw >=0.10.4
     - scipy >=0.14.1
     - trio
-    - ipython
     - opencv
-    - transonic
     - scikit-image >=0.12.3
 
 test:
