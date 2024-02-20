@@ -1,4 +1,4 @@
-{% set version = "0.1.5" %}
+{% set version = "0.2.0" %}
 
 package:
   name: fluidimage
@@ -6,13 +6,15 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/fluidimage/fluidimage-{{ version }}.tar.gz
-  sha256: ace034ed3ca837a36869a55b2ef158b7527398dc04e16d19af84a68acac2cd7c
+  sha256: 55b3b118ea16f72b00e9f51e9635fbae242751bbdde60e29ad6fdb5cc7274135
 
 build:
   number: 0
   skip: true  # [py<39]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
+    - fluidimviewer = fluidimage.gui.imviewer:main
+    - fluidimlauncher = fluidimage.gui.launcher.main:main
   script_env:
     - QT_QPA_PLATFORM=offscreen
 
@@ -20,30 +22,31 @@ requirements:
   build:
     - {{ compiler('cxx') }}
   host:
-    - python
     - pip
-    - setuptools_scm
-    - transonic
-    - pythran
+    - python
+    - meson-python
+    - numpy
+    - transonic >=0.6.2
+    - pythran >=0.9.7
+    # pythran code needs clang-cl on windows
+    - clang  # [win]
   run:
     - python
-    - transonic
+    - ipython
+    - {{ pin_compatible('numpy') }}
+    - transonic >=0.6.2
     - dask
     - fluiddyn >=0.3.4
     - h5netcdf
     - h5py
     - imageio
-    - matplotlib-base >=3.4
-    - {{ pin_compatible('numpy') }}
+    - matplotlib-base
     - pims
     - pyfftw >=0.10.4
     - scipy >=0.14.1
     - trio
-    - ipython
     - opencv
-    - transonic
     - scikit-image >=0.12.3
-    - pyqt ==5.*
 
 test:
   imports:
@@ -61,10 +64,13 @@ test:
     - fluidimage.topologies
     - fluidimage.util
     - fluidimage.works
-    - fluidimage.works.piv
+    # On Windows
+    # ImportError: DLL load failed while importing subpix: A dynamic link library (DLL) initialization routine failed.
+    # - fluidimage.works.piv
   commands:
     - fluidimviewer-pg --help
     - fluidimviewer --help
+    # - fluidimlauncher -h
 
 about:
   home: https://foss.heptapod.net/fluiddyn/fluidimage
