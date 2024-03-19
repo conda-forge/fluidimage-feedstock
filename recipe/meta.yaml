@@ -73,7 +73,7 @@ test:
     - fluidimviewer --help
     # - fluidimlauncher -h
   requires:
-    - pocl
+    - pocl  # [linux]
 
 
 about:
