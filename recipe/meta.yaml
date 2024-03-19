@@ -1,4 +1,4 @@
-{% set version = "0.2.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: fluidimage
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/fluidimage/fluidimage-{{ version }}.tar.gz
-  sha256: 55b3b118ea16f72b00e9f51e9635fbae242751bbdde60e29ad6fdb5cc7274135
+  sha256: 82c02e924fbb8e8cfd6964cb6fd9bf55cebcb83a0e11774cc370be43ceecab9a
 
 build:
   number: 0
@@ -36,7 +36,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - transonic >=0.6.2
     - dask
-    - fluiddyn >=0.3.4
+    - fluiddyn >=0.6.0
     - h5netcdf
     - h5py
     - imageio
@@ -45,32 +45,37 @@ requirements:
     - pyfftw >=0.10.4
     - scipy >=0.14.1
     - trio
-    - opencv
+    - py-opencv
     - scikit-image >=0.12.3
+    - rich
 
 test:
   imports:
-    - fluidimage
-    - fluidimage.calcul
-    - fluidimage.calcul.interpolate
-    - fluidimage.calibration
-    - fluidimage.data_objects
-    - fluidimage.executors
-    - fluidimage.gui
-    - fluidimage.gui.launcher
-    - fluidimage.postproc
-    - fluidimage.preproc
-    - fluidimage.reconstruct
-    - fluidimage.topologies
-    - fluidimage.util
-    - fluidimage.works
+    - cv2  # [not linux]
+    - fluidimage  # [not linux]
+    - fluidimage.calcul  # [not linux]
+    - fluidimage.calcul.interpolate  # [not linux]
+    - fluidimage.calibration  # [not linux]
+    - fluidimage.data_objects  # [not linux]
+    - fluidimage.executors  # [not linux]
+    - fluidimage.gui  # [not linux]
+    - fluidimage.gui.launcher  # [not linux]
+    - fluidimage.postproc  # [not linux]
+    - fluidimage.reconstruct  # [not linux]
+    - fluidimage.topologies  # [not linux]
+    - fluidimage.util  # [not linux]
+    - fluidimage.works  # [not linux]
     # On Windows
     # ImportError: DLL load failed while importing subpix: A dynamic link library (DLL) initialization routine failed.
+    # - fluidimage.preproc
     # - fluidimage.works.piv
   commands:
-    - fluidimviewer-pg --help
-    - fluidimviewer --help
+    - fluidimviewer-pg --help  # [not linux]
+    - fluidimviewer --help  # [not linux]
     # - fluidimlauncher -h
+  requires:
+    - pocl  # [linux]
+
 
 about:
   home: https://foss.heptapod.net/fluiddyn/fluidimage
