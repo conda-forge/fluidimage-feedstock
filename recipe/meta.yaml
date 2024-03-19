@@ -51,26 +51,27 @@ requirements:
 
 test:
   imports:
-    - fluidimage
-    - fluidimage.calcul
-    - fluidimage.calcul.interpolate
-    - fluidimage.calibration
-    - fluidimage.data_objects
-    - fluidimage.executors
-    - fluidimage.gui
-    - fluidimage.gui.launcher
-    - fluidimage.postproc
-    - fluidimage.reconstruct
-    - fluidimage.topologies
-    - fluidimage.util
-    - fluidimage.works
+    - cv2  # [not linux]
+    - fluidimage  # [not linux]
+    - fluidimage.calcul  # [not linux]
+    - fluidimage.calcul.interpolate  # [not linux]
+    - fluidimage.calibration  # [not linux]
+    - fluidimage.data_objects  # [not linux]
+    - fluidimage.executors  # [not linux]
+    - fluidimage.gui  # [not linux]
+    - fluidimage.gui.launcher  # [not linux]
+    - fluidimage.postproc  # [not linux]
+    - fluidimage.reconstruct  # [not linux]
+    - fluidimage.topologies  # [not linux]
+    - fluidimage.util  # [not linux]
+    - fluidimage.works  # [not linux]
     # On Windows
     # ImportError: DLL load failed while importing subpix: A dynamic link library (DLL) initialization routine failed.
     # - fluidimage.preproc
     # - fluidimage.works.piv
   commands:
-    - fluidimviewer-pg --help
-    - fluidimviewer --help
+    - fluidimviewer-pg --help  # [not linux]
+    - fluidimviewer --help  # [not linux]
     # - fluidimlauncher -h
   requires:
     - pocl  # [linux]
