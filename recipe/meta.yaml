@@ -14,6 +14,7 @@ build:
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
     - fluidimviewer = fluidimage.gui.imviewer:main
+    - fluidpivviewer = fluidimage.gui.piv_viewer:main
     - fluidimlauncher = fluidimage.gui.launcher.main:main
   script_env:
     - QT_QPA_PLATFORM=offscreen
@@ -72,6 +73,7 @@ test:
   commands:
     - fluidimviewer-pg --help
     - fluidimviewer --help
+    - fluidpivviewer --help
     # - fluidimlauncher -h
   requires:
     - libopencv *=headless*  # [linux]
