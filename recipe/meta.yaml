@@ -9,7 +9,7 @@ source:
   sha256: 3279986fb331ae5f83b4a316ebffb897745afbd6af313563478c4308ebba3573
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<39]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
@@ -27,7 +27,7 @@ requirements:
     - python
     - meson-python
     - numpy
-    - transonic >=0.6.2
+    - transonic >=0.6.4
     - pythran >=0.9.7
     # pythran code needs clang-cl on windows
     - clang  # [win]
@@ -35,7 +35,7 @@ requirements:
     - python
     - ipython
     - {{ pin_compatible('numpy') }}
-    - transonic >=0.6.2
+    - transonic >=0.6.4
     - dask
     - fluiddyn >=0.6.0
     - h5netcdf
@@ -66,10 +66,8 @@ test:
     - fluidimage.topologies
     - fluidimage.util
     - fluidimage.works
-    # On Windows
-    # ImportError: DLL load failed while importing subpix: A dynamic link library (DLL) initialization routine failed.
-    # - fluidimage.preproc
-    # - fluidimage.works.piv
+    - fluidimage.preproc
+    - fluidimage.works.piv
   commands:
     - fluidimviewer-pg --help
     - fluidimviewer --help
