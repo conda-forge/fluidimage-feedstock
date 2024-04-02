@@ -68,6 +68,11 @@ test:
     - fluidimage.works
     - fluidimage.preproc
     - fluidimage.works.piv
+    # Pythran extensions
+    - fluidimage.calcul.__pythran__.correl
+    - fluidimage.calcul.__pythran__.subpix
+    - fluidimage.calcul.interpolate.__pythran__.thin_plate_spline
+    - fluidimage.topologies.__pythran__.example
   commands:
     - fluidimviewer-pg --help
     - fluidimviewer --help
