@@ -1,4 +1,4 @@
-{% set version = "0.4.3" %}
+{% set version = "0.4.3.post0" %}
 
 package:
   name: fluidimage
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/fluidimage/fluidimage-{{ version }}.tar.gz
-  sha256: 3279986fb331ae5f83b4a316ebffb897745afbd6af313563478c4308ebba3573
+  sha256: ee9d2f367c6bb7b7234737320fc9687b8353fb7991400cd7a321db8986c3ad4d
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<39]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
@@ -68,6 +68,11 @@ test:
     - fluidimage.works
     - fluidimage.preproc
     - fluidimage.works.piv
+    # Pythran extensions
+    - fluidimage.calcul.__pythran__.correl
+    - fluidimage.calcul.__pythran__.subpix
+    - fluidimage.calcul.interpolate.__pythran__.thin_plate_spline
+    - fluidimage.topologies.__pythran__.example
   commands:
     - fluidimviewer-pg --help
     - fluidimviewer --help
