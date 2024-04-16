@@ -1,4 +1,4 @@
-{% set version = "0.4.3.post0" %}
+{% set version = "0.4.4" %}
 
 package:
   name: fluidimage
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/fluidimage/fluidimage-{{ version }}.tar.gz
-  sha256: ee9d2f367c6bb7b7234737320fc9687b8353fb7991400cd7a321db8986c3ad4d
+  sha256: 9a9b077c55043c14e6b17ce2be2ae9e1f900c478b4c1252b0a233ac154ca9d61
 
 build:
   number: 0
