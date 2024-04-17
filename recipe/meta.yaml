@@ -16,6 +16,7 @@ build:
     - fluidimviewer = fluidimage.gui.imviewer:main
     - fluidpivviewer = fluidimage.gui.piv_viewer:main
     - fluidimlauncher = fluidimage.gui.launcher.main:main
+    - fluidimage-monitor = fluidimage.gui.monitor:main
   script_env:
     - QT_QPA_PLATFORM=offscreen
 
@@ -49,6 +50,7 @@ requirements:
     - py-opencv
     - scikit-image >=0.12.3
     - rich
+    - textual
 
 test:
   imports:
@@ -77,6 +79,7 @@ test:
     - fluidimviewer-pg --help
     - fluidimviewer --help
     - fluidpivviewer --help
+    - fluidimage-monitor --help
     # - fluidimlauncher -h
   requires:
     - libopencv *=headless*  # [linux]
