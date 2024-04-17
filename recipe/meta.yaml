@@ -1,4 +1,4 @@
-{% set version = "0.4.3.post0" %}
+{% set version = "0.4.4" %}
 
 package:
   name: fluidimage
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/fluidimage/fluidimage-{{ version }}.tar.gz
-  sha256: ee9d2f367c6bb7b7234737320fc9687b8353fb7991400cd7a321db8986c3ad4d
+  sha256: 9a9b077c55043c14e6b17ce2be2ae9e1f900c478b4c1252b0a233ac154ca9d61
 
 build:
   number: 0
@@ -16,6 +16,7 @@ build:
     - fluidimviewer = fluidimage.gui.imviewer:main
     - fluidpivviewer = fluidimage.gui.piv_viewer:main
     - fluidimlauncher = fluidimage.gui.launcher.main:main
+    - fluidimage-monitor = fluidimage.gui.monitor:main
   script_env:
     - QT_QPA_PLATFORM=offscreen
 
@@ -37,7 +38,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - transonic >=0.6.4
     - dask
-    - fluiddyn >=0.6.0
+    - fluiddyn >=0.6.2
     - h5netcdf
     - h5py
     - imageio
@@ -49,6 +50,7 @@ requirements:
     - py-opencv
     - scikit-image >=0.12.3
     - rich
+    - textual
 
 test:
   imports:
@@ -77,6 +79,7 @@ test:
     - fluidimviewer-pg --help
     - fluidimviewer --help
     - fluidpivviewer --help
+    - fluidimage-monitor --help
     # - fluidimlauncher -h
   requires:
     - libopencv *=headless*  # [linux]
