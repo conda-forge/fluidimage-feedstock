@@ -38,7 +38,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - transonic >=0.6.4
     - dask
-    - fluiddyn >=0.6.0
+    - fluiddyn >=0.6.2
     - h5netcdf
     - h5py
     - imageio
