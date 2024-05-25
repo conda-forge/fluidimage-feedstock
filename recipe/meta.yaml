@@ -17,6 +17,8 @@ build:
     - fluidpivviewer = fluidimage.gui.piv_viewer:main
     - fluidimlauncher = fluidimage.gui.launcher.main:main
     - fluidimage-monitor = fluidimage.gui.monitor:main
+    - fluidimage-mean = fluidimage.topologies.mean:main
+
   script_env:
     - QT_QPA_PLATFORM=offscreen
 
@@ -81,6 +83,7 @@ test:
     - fluidimviewer --help
     - fluidpivviewer --help
     - fluidimage-monitor --help
+    - fluidimage-mean --help
     # - fluidimlauncher -h
   requires:
     - libopencv *=headless*  # [linux]
