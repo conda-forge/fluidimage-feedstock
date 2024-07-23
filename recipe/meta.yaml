@@ -9,7 +9,7 @@ source:
   sha256: 56aa8a0b987da0a5a39994671ab1c976c26c7092d818a2a82e6184a455c2b275
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<39 or py>311]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
@@ -38,7 +38,6 @@ requirements:
   run:
     - python
     - ipython
-    - {{ pin_compatible('numpy') }}
     - transonic >=0.6.4
     - dask
     - fluiddyn >=0.6.2
