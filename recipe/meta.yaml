@@ -1,4 +1,4 @@
-{% set version = "0.5.2" %}
+{% set version = "0.5.3" %}
 
 package:
   name: fluidimage
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/fluidimage/fluidimage-{{ version }}.tar.gz
-  sha256: 56aa8a0b987da0a5a39994671ab1c976c26c7092d818a2a82e6184a455c2b275
+  sha256: f5333804748d35fae0a4b4c7b7346171b99f4c22e1c21620dc822af34145cb49
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<39 or py>311]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
