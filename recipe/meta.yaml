@@ -10,7 +10,7 @@ source:
 
 build:
   number: 1
-  skip: true  # [py<39]
+  skip: true  # [py<39 or (win and py>311)]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
     - fluidimviewer = fluidimage.gui.imviewer:main
