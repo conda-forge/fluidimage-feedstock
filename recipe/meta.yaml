@@ -9,8 +9,8 @@ source:
   sha256: f5333804748d35fae0a4b4c7b7346171b99f4c22e1c21620dc822af34145cb49
 
 build:
-  number: 0
-  skip: true  # [py<39 or py>311]
+  number: 1
+  skip: true  # [py<39]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
     - fluidimviewer = fluidimage.gui.imviewer:main
@@ -57,6 +57,11 @@ requirements:
 test:
   imports:
     - cv2
+    # Pythran extensions
+    - fluidimage.calcul.__pythran__.correl
+    - fluidimage.calcul.__pythran__.subpix
+    - fluidimage.calcul.interpolate.__pythran__.thin_plate_spline
+    - fluidimage.topologies.__pythran__.example
     - fluidimage
     - fluidimage.calcul
     - fluidimage.calcul.interpolate
@@ -72,11 +77,6 @@ test:
     - fluidimage.works
     - fluidimage.preproc
     - fluidimage.works.piv
-    # Pythran extensions
-    - fluidimage.calcul.__pythran__.correl
-    - fluidimage.calcul.__pythran__.subpix
-    - fluidimage.calcul.interpolate.__pythran__.thin_plate_spline
-    - fluidimage.topologies.__pythran__.example
   commands:
     - fluidimviewer-pg --help
     - fluidimviewer --help
