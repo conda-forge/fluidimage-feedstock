@@ -55,12 +55,14 @@ ulimit -n 1024
 # run "conda smithy rerender" and this line will be updated
 # automatically.
 /usr/bin/sudo -n yum install -y xorg-x11-server-Xorg
+)
 
-
-
-)# make the build number clobber
+# make the build number clobber
 make_build_number "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
 
+if [[ "${HOST_PLATFORM}" != "${BUILD_PLATFORM}" ]] && [[ "${HOST_PLATFORM}" != linux-* ]] && [[ "${BUILD_WITH_CONDA_DEBUG:-0}" != 1 ]]; then
+    EXTRA_CB_OPTIONS="${EXTRA_CB_OPTIONS:-} --no-test"
+fi
 
 
 ( endgroup "Configuring conda" ) 2> /dev/null
