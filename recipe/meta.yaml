@@ -1,4 +1,4 @@
-{% set version = "0.5.4" %}
+{% set version = "0.5.5" %}
 
 package:
   name: fluidimage
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/f/fluidimage/fluidimage-{{ version }}.tar.gz
-  sha256: d6aaeadf45811ba02e7e727453bff9a4f8024ddb3c8e9abb7feebd727f112df2
+  sha256: 668f77081c7fb1a88ebab7ec1a3af462f3ce236695c73b16bdd5ac482242f579
 
 build:
-  number: 1
-  skip: true  # [py<310]
+  number: 0
+  skip: true  # [py<311]
   entry_points:
     - fluidimviewer-pg = fluidimage.gui.pg_main:main
     - fluidimviewer = fluidimage.gui.imviewer:main
@@ -40,7 +40,7 @@ requirements:
     - meson-python
     - numpy
     - transonic >=0.6.4
-    - pythran >=0.9.7
+    - pythran >=0.9.7,<0.18.1
   run:
     - python
     - ipython
@@ -91,7 +91,7 @@ test:
     - fluidimage-mean --help
     # - fluidimlauncher -h
   requires:
-    - libopencv *=headless*  # [linux]
+    - libopencv >=4.12.0 headless*  # [linux]
 
 about:
   home: https://foss.heptapod.net/fluiddyn/fluidimage
